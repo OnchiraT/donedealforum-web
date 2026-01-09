@@ -126,7 +126,7 @@ export default function App() {
 
       {/* Video Section - Vision */}
       <VideoSection
-        videoUrl="/academy-video.mp4"
+        videoUrl="https://files.manuscdn.com/user_upload_by_module/session_file/110801028/vEMGyMiWVWIKgjvl.mp4"
         title="Ready to Level Up Your Deal Game?"
         description="เตรียมพร้อมสำหรับการเปลี่ยนแปลงครั้งใหญ่ในวงการ Sales และ Business Negotiation ประเทศไทย"
         videoPosition="left"

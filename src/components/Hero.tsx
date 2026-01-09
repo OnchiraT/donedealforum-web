@@ -9,7 +9,7 @@ export function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/academy-video.mp4" type="video/mp4" />
+        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/110801028/vEMGyMiWVWIKgjvl.mp4" type="video/mp4" />
       </video>
       
       {/* Dark Overlay */}
