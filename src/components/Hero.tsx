@@ -11,12 +11,16 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-gray-900">
+    <section 
+      className="relative w-full overflow-hidden bg-gray-900"
+      style={{ height: '100vh', minHeight: '600px' }}
+    >
       {/* Video Poster as fallback background - using img tag for better compatibility */}
       <img 
         src="/video-poster.jpg" 
         alt="Done Deal Academy" 
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 1 }}
       />
       
       {/* Video Background */}
@@ -27,7 +31,8 @@ export function Hero() {
         playsInline
         preload="auto"
         poster="/video-poster.jpg"
-        className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ zIndex: 2 }}
         onCanPlay={() => setVideoLoaded(true)}
         onLoadedData={() => setVideoLoaded(true)}
       >
@@ -35,13 +40,22 @@ export function Hero() {
       </video>
       
       {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-20"></div>
+      <div 
+        className="absolute inset-0 bg-black/40"
+        style={{ zIndex: 3 }}
+      ></div>
       
       {/* Bottom Fade Gradient - White fade to indicate content below */}
-      <div className="absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-white via-white/90 to-transparent z-30"></div>
+      <div 
+        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/90 to-transparent"
+        style={{ zIndex: 4, height: '14rem' }}
+      ></div>
       
       {/* Content at Bottom */}
-      <div className={`absolute bottom-0 left-0 right-0 z-40 transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div 
+        className={`absolute bottom-0 left-0 right-0 transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        style={{ zIndex: 5 }}
+      >
         <div className="max-w-6xl mx-auto px-6 pb-10 text-center">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 drop-shadow-sm">
             Closing Deals is Just the Beginning!
