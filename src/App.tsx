@@ -59,7 +59,7 @@ export default function App() {
       <Hero />
 
       {/* About Section */}
-      <WhiteSection title="About Done Deal Academy" centered={false}>
+      <WhiteSection id="about" title="About Done Deal Academy" centered={false}>
         <div className="max-w-3xl">
           <p className="text-xl mb-6 text-gray-700">
             <strong>Done Deal Academy</strong> คือสถาบันพัฒนาทักษะด้านการขายและการเจรจาต่อรองระดับพรีเมียมแห่งแรกของประเทศไทย ที่ขับเคลื่อนด้วยแนวคิด Digital-Driven Commercial Leadership
@@ -104,7 +104,7 @@ export default function App() {
       />
 
       {/* Programs Section */}
-      <WhiteSection title="หลักสูตรของเรา" centered={false}>
+      <WhiteSection id="courses" title="หลักสูตรของเรา" centered={false}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {programs.map((program, index) => (
             <FeatureCard
@@ -134,7 +134,7 @@ export default function App() {
       />
 
       {/* Contact Section */}
-      <WhiteSection title="ติดต่อเรา" centered={true}>
+      <WhiteSection id="contact" title="ติดต่อเรา" centered={true}>
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xl mb-8 text-gray-700">
             พร้อมที่จะยกระดับทักษะการขายและการเจรจาต่อรองของคุณหรือยัง? ติดต่อเราวันนี้!
