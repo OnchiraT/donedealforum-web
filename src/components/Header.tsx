@@ -12,13 +12,18 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header 
+      className="fixed top-0 left-0 right-0"
+      style={{ zIndex: 50 }}
+    >
       {/* White fade background - more solid when scrolled */}
-      <div className={`absolute inset-0 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white shadow-md' 
-          : 'bg-gradient-to-b from-white via-white/95 to-transparent'
-      }`}></div>
+      <div 
+        className={`absolute inset-0 transition-all duration-300 ${
+          scrolled 
+            ? 'bg-white shadow-md' 
+            : 'bg-gradient-to-b from-white via-white/95 to-transparent'
+        }`}
+      ></div>
       
       <div className={`relative max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between transition-all duration-300 ${
         scrolled ? 'py-2' : 'py-3 md:py-4'
@@ -27,9 +32,13 @@ export function Header() {
           <img 
             src="/donedeal-academy-logo.jpg" 
             alt="Done Deal Academy" 
-            className={`w-auto rounded-md shadow-sm transition-all duration-300 ${
-              scrolled ? 'h-8 md:h-10' : 'h-10 md:h-14'
-            }`}
+            className="rounded-md shadow-sm transition-all duration-300"
+            style={{
+              height: scrolled ? '32px' : '40px',
+              maxHeight: scrolled ? '32px' : '40px',
+              width: 'auto',
+              maxWidth: '200px'
+            }}
           />
         </a>
         
