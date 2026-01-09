@@ -13,49 +13,85 @@ export function Header() {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0"
-      style={{ zIndex: 50 }}
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+      }`}
+      style={{ zIndex: 1000 }}
     >
-      {/* White fade background - more solid when scrolled */}
-      <div 
-        className={`absolute inset-0 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white shadow-md' 
-            : 'bg-gradient-to-b from-white via-white/95 to-transparent'
-        }`}
-      ></div>
-      
-      <div className={`relative max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between transition-all duration-300 ${
-        scrolled ? 'py-2' : 'py-3 md:py-4'
-      }`}>
-        <a href="#">
-          <img 
-            src="/donedeal-academy-logo.jpg" 
-            alt="Done Deal Academy" 
-            className="rounded-md shadow-sm transition-all duration-300"
-            style={{
-              height: scrolled ? '32px' : '40px',
-              maxHeight: scrolled ? '32px' : '40px',
-              width: 'auto',
-              maxWidth: '200px'
-            }}
-          />
-        </a>
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Main Header Row - Cartier Style */}
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          scrolled ? 'py-3' : 'py-5'
+        }`}>
+          {/* Left Spacer for balance */}
+          <div className="flex-1"></div>
+          
+          {/* Center Logo - Large and Prominent */}
+          <div className="flex-shrink-0">
+            <a href="#" className="block">
+              <img 
+                src="/donedeal-academy-logo.jpg" 
+                alt="Done Deal Academy" 
+                className={`transition-all duration-500 ${
+                  scrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
+                }`}
+                style={{ 
+                  width: 'auto',
+                  maxWidth: scrolled ? '180px' : '240px'
+                }}
+              />
+            </a>
+          </div>
+          
+          {/* Right Spacer for balance */}
+          <div className="flex-1"></div>
+        </div>
         
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <a href="#about" className="text-gray-700 hover:text-red-600 transition-colors font-medium">เกี่ยวกับเรา</a>
-          <a href="#courses" className="text-gray-700 hover:text-red-600 transition-colors font-medium">หลักสูตร</a>
-          <a href="#contact" className="text-gray-700 hover:text-red-600 transition-colors font-medium">ติดต่อ</a>
+        {/* Navigation Row - Separate line like Cartier */}
+        <nav className={`flex items-center justify-center border-t transition-all duration-500 ${
+          scrolled 
+            ? 'border-gray-200 py-2' 
+            : 'border-white/20 py-3'
+        }`}>
+          <div className="flex items-center space-x-12 md:space-x-16">
+            <a 
+              href="#about" 
+              className={`text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 ${
+                scrolled ? 'text-gray-800' : 'text-gray-700'
+              }`}
+            >
+              เกี่ยวกับเรา
+            </a>
+            <a 
+              href="#courses" 
+              className={`text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 ${
+                scrolled ? 'text-gray-800' : 'text-gray-700'
+              }`}
+            >
+              หลักสูตร
+            </a>
+            <a 
+              href="#contact" 
+              className={`text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 ${
+                scrolled ? 'text-gray-800' : 'text-gray-700'
+              }`}
+            >
+              ติดต่อ
+            </a>
+          </div>
         </nav>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-gray-700 p-2">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
       </div>
+      
+      {/* Mobile Menu Button - Only visible on mobile */}
+      <button 
+        className={`md:hidden absolute top-4 right-4 p-2 transition-colors ${
+          scrolled ? 'text-gray-800' : 'text-gray-700'
+        }`}
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </header>
   );
 }

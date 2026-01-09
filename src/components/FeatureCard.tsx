@@ -1,14 +1,53 @@
+import { useEffect, useRef, useState } from 'react';
+
 interface FeatureCardProps {
   number: string;
   title: string;
   description: string;
+  index?: number;
 }
 
-export function FeatureCard({ number, title, description }: FeatureCardProps) {
+export function FeatureCard({ number, title, description, index = 0 }: FeatureCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="group relative p-8 border border-gray-100 hover:border-black/20 transition-all duration-300">
+    <div 
+      ref={cardRef}
+      className={`group relative p-8 border border-gray-100 hover:border-black/20 transition-all duration-500 ease-out ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`}
+      style={{
+        transitionDelay: `${index * 100}ms`
+      }}
+    >
       {/* Number */}
-      <div className="text-5xl mb-4 opacity-20 group-hover:opacity-30 transition-opacity" style={{ color: 'var(--color-primary-red)' }}>
+      <div 
+        className="text-5xl mb-4 opacity-20 group-hover:opacity-30 transition-opacity" 
+        style={{ color: 'var(--color-primary-red)' }}
+      >
         {number}
       </div>
       

@@ -54,7 +54,7 @@ export default function App() {
   ];
 
  return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={{ scrollBehavior: 'smooth' }}>
       <Header />
       <Hero />
 
@@ -90,6 +90,7 @@ export default function App() {
               number={feature.number}
               title={feature.title}
               description={feature.description}
+              index={index}
             />
           ))}
         </div>
@@ -112,6 +113,7 @@ export default function App() {
               number={program.number}
               title={program.title}
               description={program.description}
+              index={index}
             />
           ))}
         </div>
