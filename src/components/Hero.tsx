@@ -12,10 +12,10 @@ export function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Video Poster as fallback background - using actual video frame */}
+      {/* Video Poster as fallback background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-gray-900"
-        style={{ backgroundImage: 'url(https://files.manuscdn.com/user_upload_by_module/session_file/110801028/EbgOGoqZyKeWWKwD.jpg)' }}
+        style={{ backgroundImage: 'url(/video-poster.jpg)' }}
       ></div>
       
       {/* Video Background */}
@@ -24,8 +24,8 @@ export function Hero() {
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="https://files.manuscdn.com/user_upload_by_module/session_file/110801028/EbgOGoqZyKeWWKwD.jpg"
+        preload="auto"
+        poster="/video-poster.jpg"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         onCanPlay={() => setVideoLoaded(true)}
         onLoadedData={() => setVideoLoaded(true)}
