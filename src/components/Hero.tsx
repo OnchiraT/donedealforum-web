@@ -12,11 +12,12 @@ export function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Video Poster as fallback background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-gray-900"
-        style={{ backgroundImage: 'url(/video-poster.jpg)' }}
-      ></div>
+      {/* Video Poster as fallback background - using img tag for better compatibility */}
+      <img 
+        src="/video-poster.jpg" 
+        alt="Done Deal Academy" 
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       
       {/* Video Background */}
       <video
