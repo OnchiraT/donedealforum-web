@@ -39,29 +39,31 @@ export function Hero() {
         <source src="https://files.manuscdn.com/user_upload_by_module/session_file/110801028/vEMGyMiWVWIKgjvl.mp4" type="video/mp4" />
       </video>
       
-      {/* White Fade Gradient at Bottom - Takes up bottom 40% */}
+      {/* White Fade Gradient at Bottom */}
       <div 
         className={`absolute left-0 right-0 bottom-0 pointer-events-none transition-opacity duration-1000 ${
           showContent ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ 
           zIndex: 3,
-          height: '40%',
-          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.3) 75%, transparent 100%)'
+          height: '50%',
+          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 15%, rgba(255,255,255,0.85) 35%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)'
         }}
       />
       
-      {/* Content Container - Absolutely positioned at the very bottom */}
+      {/* Content Container - Positioned at bottom center with enough space */}
       <div 
-        className="absolute left-0 right-0"
+        className="absolute left-0 right-0 flex flex-col items-center justify-end"
         style={{ 
           zIndex: 10, 
-          bottom: '30px'
+          bottom: '50px',
+          paddingLeft: '20px',
+          paddingRight: '20px'
         }}
       >
         {/* Text Content */}
         <div 
-          className={`text-center px-6 transition-all duration-1000 ease-out ${
+          className={`text-center transition-all duration-1000 ease-out ${
             showContent 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-10'
@@ -69,7 +71,7 @@ export function Hero() {
         >
           {/* Main Headline */}
           <h1 
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight"
             style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}
           >
             Closing Deals is Just the Beginning!
@@ -77,7 +79,7 @@ export function Hero() {
           
           {/* Subheadline */}
           <p 
-            className={`text-base md:text-lg lg:text-xl text-gray-700 mb-4 transition-all duration-1000 delay-200 ${
+            className={`text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-4 md:mb-5 transition-all duration-1000 delay-200 ${
               showContent 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-4'
@@ -96,14 +98,14 @@ export function Hero() {
             }`}
           >
             <span 
-              className="text-sm text-gray-500 mb-1"
+              className="text-xs sm:text-sm text-gray-500 mb-1"
               style={{ fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
             >
               เลื่อนลงเพื่อดูเพิ่มเติม
             </span>
             <div className="animate-bounce">
               <svg 
-                className="w-5 h-5 text-red-600" 
+                className="w-4 h-4 md:w-5 md:h-5 text-red-600" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
