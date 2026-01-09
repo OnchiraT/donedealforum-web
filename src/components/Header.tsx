@@ -11,6 +11,19 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 120; // Approximate header height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - headerHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
@@ -19,53 +32,56 @@ export function Header() {
       style={{ zIndex: 1000 }}
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Main Header Row - Cartier Style */}
+        {/* Compact Header Row */}
         <div className={`flex items-center justify-center transition-all duration-500 ${
-          scrolled ? 'py-3' : 'py-5'
+          scrolled ? 'py-2' : 'py-3'
         }`}>
-          {/* Center Logo - Large and Prominent */}
+          {/* Center Logo */}
           <a href="#" className="block">
             <img 
               src="/donedeal-academy-logo.jpg" 
               alt="Done Deal Academy" 
               className={`transition-all duration-500 ${
-                scrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
+                scrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'
               }`}
               style={{ 
                 width: 'auto',
-                maxWidth: scrolled ? '180px' : '240px'
+                maxWidth: scrolled ? '160px' : '200px'
               }}
             />
           </a>
         </div>
         
-        {/* Navigation Row - Separate line like Cartier */}
+        {/* Navigation Row */}
         <nav className={`flex items-center justify-center border-t transition-all duration-500 ${
           scrolled 
-            ? 'border-gray-200 py-2' 
-            : 'border-gray-100 py-3'
+            ? 'border-gray-200 py-1.5' 
+            : 'border-gray-100 py-2'
         }`}>
           <div 
             className="flex items-center justify-center"
             style={{ gap: '60px' }}
           >
             <a 
-              href="#about" 
-              className="text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800"
+              href="#about"
+              onClick={(e) => scrollToSection(e, 'about')}
+              className="text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
               style={{ letterSpacing: '0.1em' }}
             >
               เกี่ยวกับเรา
             </a>
             <a 
-              href="#courses" 
-              className="text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800"
+              href="#courses"
+              onClick={(e) => scrollToSection(e, 'courses')}
+              className="text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
               style={{ letterSpacing: '0.1em' }}
             >
               หลักสูตร
             </a>
             <a 
-              href="#contact" 
-              className="text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800"
+              href="#contact"
+              onClick={(e) => scrollToSection(e, 'contact')}
+              className="text-sm md:text-base font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
               style={{ letterSpacing: '0.1em' }}
             >
               ติดต่อ
@@ -74,9 +90,9 @@ export function Header() {
         </nav>
       </div>
       
-      {/* Mobile Menu Button - Only visible on mobile */}
+      {/* Mobile Menu Button */}
       <button 
-        className="md:hidden absolute top-4 right-4 p-2 text-gray-800"
+        className="md:hidden absolute top-3 right-4 p-2 text-gray-800"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
