@@ -45,17 +45,23 @@ export function ImageSection({ imageUrl, title, description, imagePosition = 'le
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Check if text contains Thai characters
+  const isTitleThai = /[\u0E00-\u0E7F]/.test(title);
+  const isDescThai = /[\u0E00-\u0E7F]/.test(description);
+
   return (
     <section 
       ref={sectionRef}
       className="relative min-h-[500px] flex items-center overflow-hidden"
     >
-      {/* Background Image with Parallax */}
+      {/* Background Image with Parallax and Fade-in */}
       <div 
-        className="absolute inset-0"
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
         style={{
           transform: `translateY(${scrollY * 30}px) scale(1.1)`,
-          transition: 'transform 0.1s ease-out'
+          transition: 'transform 0.1s ease-out, opacity 1s ease-out'
         }}
       >
         <img 
@@ -70,25 +76,35 @@ export function ImageSection({ imageUrl, title, description, imagePosition = 'le
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12 w-full">
         <div className={`max-w-lg ${imagePosition === 'right' ? 'ml-auto text-right' : ''}`}>
           <h2 
-            className={`text-white mb-6 transition-all duration-700 ease-out ${
+            className={`text-white mb-6 transition-all duration-1000 ease-out ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-8'
             }`}
+            style={{ 
+              fontFamily: isTitleThai ? "'IBM Plex Sans Thai', sans-serif" : "'Poppins', sans-serif",
+              fontWeight: 600,
+              fontSize: '2rem'
+            }}
           >
             {title}
           </h2>
           <p 
-            className={`text-white/90 mb-8 transition-all duration-700 delay-200 ease-out ${
+            className={`text-white/90 mb-8 transition-all duration-1000 delay-300 ease-out ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-8'
             }`}
+            style={{ 
+              fontFamily: isDescThai ? "'IBM Plex Sans Thai', sans-serif" : "'Poppins', sans-serif",
+              fontSize: '1.125rem',
+              lineHeight: 1.75
+            }}
           >
             {description}
           </p>
           <div 
-            className={`w-16 h-1 transition-all duration-700 delay-400 ease-out ${imagePosition === 'right' ? 'ml-auto' : ''} ${
+            className={`w-16 h-1 transition-all duration-1000 delay-500 ease-out ${imagePosition === 'right' ? 'ml-auto' : ''} ${
               isVisible 
                 ? 'opacity-100 scale-x-100' 
                 : 'opacity-0 scale-x-0'

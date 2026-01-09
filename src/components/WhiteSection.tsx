@@ -31,6 +31,9 @@ export function WhiteSection({ title, children, centered = false, id }: WhiteSec
     return () => observer.disconnect();
   }, []);
 
+  // Check if title contains Thai characters
+  const isThai = /[\u0E00-\u0E7F]/.test(title);
+
   return (
     <section 
       ref={sectionRef}
@@ -39,16 +42,21 @@ export function WhiteSection({ title, children, centered = false, id }: WhiteSec
     >
       <div className="max-w-6xl mx-auto px-6">
         <h2 
-          className={`mb-16 transition-all duration-700 ease-out ${centered ? 'text-center' : ''} ${
+          className={`mb-16 transition-all duration-1000 ease-out ${centered ? 'text-center' : ''} ${
             isVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
+          style={{ 
+            fontFamily: isThai ? "'IBM Plex Sans Thai', sans-serif" : "'Poppins', sans-serif",
+            fontWeight: 600,
+            fontSize: '2rem'
+          }}
         >
           {title}
         </h2>
         <div 
-          className={`transition-all duration-700 delay-200 ease-out ${
+          className={`transition-all duration-1000 delay-300 ease-out ${
             isVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'

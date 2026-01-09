@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+
+  useEffect(() => {
+    // Fade in header after a short delay
+    const timer = setTimeout(() => setShowHeader(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +22,7 @@ export function Header() {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 100; // Approximate header height
+      const headerHeight = 100;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - headerHeight,
@@ -26,9 +33,9 @@ export function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-700 ${
         scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'
-      }`}
+      } ${showHeader ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
       style={{ zIndex: 1000 }}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -66,7 +73,7 @@ export function Header() {
               href="#about"
               onClick={(e) => scrollToSection(e, 'about')}
               className="text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
-              style={{ letterSpacing: '0.1em' }}
+              style={{ letterSpacing: '0.1em', fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
             >
               เกี่ยวกับเรา
             </a>
@@ -74,7 +81,7 @@ export function Header() {
               href="#courses"
               onClick={(e) => scrollToSection(e, 'courses')}
               className="text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
-              style={{ letterSpacing: '0.1em' }}
+              style={{ letterSpacing: '0.1em', fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
             >
               หลักสูตร
             </a>
@@ -82,7 +89,7 @@ export function Header() {
               href="#contact"
               onClick={(e) => scrollToSection(e, 'contact')}
               className="text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
-              style={{ letterSpacing: '0.1em' }}
+              style={{ letterSpacing: '0.1em', fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
             >
               ติดต่อ
             </a>
