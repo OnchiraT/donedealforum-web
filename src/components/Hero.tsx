@@ -1,40 +1,49 @@
-import worldMap from "figma:asset/c980c3d05e5dad193ddcf4db7a27f998ada70cd9.png";
-
 export function Hero() {
   return (
-    <section className="luxury-texture relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-      {/* World Map Background */}
-      <div className="absolute inset-0 opacity-10">
-        <img 
-          src={worldMap}
-          alt="World Map"
-          className="w-full h-full object-cover"
-          style={{ filter: 'blur(10px)' }}
-        />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/academy-video.mp4" type="video/mp4" />
+      </video>
       
-      {/* Subtle geometric shapes */}
-      <div className="absolute top-20 right-10 w-32 h-32 border border-gray-100 rounded-full opacity-50"></div>
-      <div className="absolute bottom-32 left-10 w-24 h-24 border border-gray-100 opacity-30"></div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
       
-      <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {/* Logo */}
-        <div className="mb-12 flex justify-center">
-          <img src="/logo.png" alt="Done Deal Forum" className="w-96 h-auto" style={{ mixBlendMode: 'darken' }} />
+        <div className="mb-8">
+          <img 
+            src="/donedeal-academy-logo.jpg" 
+            alt="Done Deal Academy" 
+            className="h-32 md:h-48 mx-auto rounded-lg shadow-2xl"
+          />
         </div>
         
-        {/* Subtitle */}
-        <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-600">
-          Master the Art of Negotiation
+        {/* Tagline */}
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          Closing Deals is Just the Beginning!
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          Thailand's First Digital-Driven Commercial Leadership Academy
         </p>
         
-        {/* Date */}
-        <div className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-lg">
-          <span className="text-lg">25 February 2025</span>
-        </div>
-        
-        {/* Red accent line */}
-        <div className="mt-16 w-24 h-1 mx-auto" style={{ backgroundColor: 'var(--color-primary-red)' }}></div>
+        {/* Decorative Line */}
+        <div className="w-24 h-1 bg-red-600 mx-auto"></div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </div>
     </section>
   );
