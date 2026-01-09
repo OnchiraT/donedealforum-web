@@ -1,4 +1,5 @@
 import { Hero } from './components/Hero';
+import { Header } from './components/Header';
 import { ImageSection } from './components/ImageSection';
 import { VideoSection } from './components/VideoSection';
 import { WhiteSection } from './components/WhiteSection';
@@ -52,9 +53,9 @@ export default function App() {
     }
   ];
 
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section with Video Background */}
+ return (
+    <div className="min-h-screen bg-white">
+      <Header />
       <Hero />
 
       {/* About Section */}
