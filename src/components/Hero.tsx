@@ -39,22 +39,25 @@ export function Hero() {
         <source src="https://files.manuscdn.com/user_upload_by_module/session_file/110801028/vEMGyMiWVWIKgjvl.mp4" type="video/mp4" />
       </video>
       
-      {/* White Fade Gradient at Bottom */}
+      {/* White Fade Gradient at Bottom - Takes up bottom 40% */}
       <div 
-        className={`absolute inset-x-0 bottom-0 pointer-events-none transition-opacity duration-1000 ${
+        className={`absolute left-0 right-0 bottom-0 pointer-events-none transition-opacity duration-1000 ${
           showContent ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ 
           zIndex: 3,
-          height: '45%',
-          background: 'linear-gradient(to top, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.2) 75%, transparent 100%)'
+          height: '40%',
+          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.3) 75%, transparent 100%)'
         }}
       />
       
-      {/* Content Container - Positioned at bottom center */}
+      {/* Content Container - Absolutely positioned at the very bottom */}
       <div 
-        className="absolute inset-x-0 bottom-0 flex flex-col items-center"
-        style={{ zIndex: 10, paddingBottom: '40px' }}
+        className="absolute left-0 right-0"
+        style={{ 
+          zIndex: 10, 
+          bottom: '30px'
+        }}
       >
         {/* Text Content */}
         <div 
@@ -74,7 +77,7 @@ export function Hero() {
           
           {/* Subheadline */}
           <p 
-            className={`text-base md:text-lg lg:text-xl text-gray-700 mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-base md:text-lg lg:text-xl text-gray-700 mb-4 transition-all duration-1000 delay-200 ${
               showContent 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-4'
@@ -93,7 +96,7 @@ export function Hero() {
             }`}
           >
             <span 
-              className="text-sm text-gray-500 mb-2"
+              className="text-sm text-gray-500 mb-1"
               style={{ fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
             >
               เลื่อนลงเพื่อดูเพิ่มเติม
