@@ -22,7 +22,7 @@ export function Header() {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 100;
+      const headerHeight = 80;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - headerHeight,
@@ -39,72 +39,90 @@ export function Header() {
       style={{ zIndex: 1000 }}
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Compact Header Row */}
-        <div className={`flex items-center justify-center transition-all duration-500 ${
-          scrolled ? 'py-1' : 'py-2'
+        {/* Single Row: Logo + Name on left, Nav on right */}
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          scrolled ? 'py-2' : 'py-3'
         }`}>
-          {/* Center Logo */}
-          <a href="#" className="block">
+          {/* Left: Logo + Academy Name */}
+          <a href="#" className="flex items-center" style={{ gap: '14px', textDecoration: 'none' }}>
             <img 
-              src="/donedeal-academy-logo.jpg" 
-              alt="Done Deal Academy" 
-              className={`transition-all duration-500 ${
-                scrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'
-              }`}
+              src="/deal-master-logo.png" 
+              alt="Deal Master Academy" 
+              className="transition-all duration-500"
               style={{ 
-                width: 'auto',
-                maxWidth: scrolled ? '140px' : '180px'
+                height: scrolled ? '36px' : '44px',
+                width: 'auto'
               }}
             />
+            <div className="flex flex-col" style={{ gap: '0px' }}>
+              <span 
+                className="transition-all duration-500"
+                style={{ 
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 700,
+                  fontSize: scrolled ? '15px' : '17px',
+                  color: '#8B1A1A',
+                  letterSpacing: '0.02em',
+                  lineHeight: 1.2
+                }}
+              >
+                Deal Master
+              </span>
+              <span 
+                className="transition-all duration-500"
+                style={{ 
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 400,
+                  fontSize: scrolled ? '10px' : '11px',
+                  color: '#666',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase' as const,
+                  lineHeight: 1.2
+                }}
+              >
+                Academy
+              </span>
+            </div>
           </a>
-        </div>
-        
-        {/* Navigation Row */}
-        <nav className={`flex items-center justify-center border-t transition-all duration-500 ${
-          scrolled 
-            ? 'border-gray-200 py-1' 
-            : 'border-gray-100 py-1.5'
-        }`}>
-          <div 
-            className="flex items-center justify-center"
-            style={{ gap: '60px' }}
-          >
+
+          {/* Right: Navigation */}
+          <nav className="hidden md:flex items-center" style={{ gap: '48px' }}>
             <a 
               href="#about"
               onClick={(e) => scrollToSection(e, 'about')}
-              className="text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
-              style={{ letterSpacing: '0.1em', fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
+              className="text-sm font-medium tracking-wide transition-colors duration-300 hover:text-red-700 text-gray-700 cursor-pointer"
+              style={{ letterSpacing: '0.08em', fontFamily: "'IBM Plex Sans Thai', sans-serif", fontSize: '13px' }}
             >
               เกี่ยวกับเรา
             </a>
             <a 
               href="#courses"
               onClick={(e) => scrollToSection(e, 'courses')}
-              className="text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
-              style={{ letterSpacing: '0.1em', fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
+              className="text-sm font-medium tracking-wide transition-colors duration-300 hover:text-red-700 text-gray-700 cursor-pointer"
+              style={{ letterSpacing: '0.08em', fontFamily: "'IBM Plex Sans Thai', sans-serif", fontSize: '13px' }}
             >
               หลักสูตร
             </a>
             <a 
               href="#contact"
               onClick={(e) => scrollToSection(e, 'contact')}
-              className="text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-red-600 text-gray-800 cursor-pointer"
-              style={{ letterSpacing: '0.1em', fontFamily: "'IBM Plex Sans Thai', sans-serif" }}
+              className="text-sm font-medium tracking-wide transition-colors duration-300 hover:text-red-700 text-gray-700 cursor-pointer"
+              style={{ letterSpacing: '0.08em', fontFamily: "'IBM Plex Sans Thai', sans-serif", fontSize: '13px' }}
             >
               ติดต่อ
             </a>
-          </div>
-        </nav>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 text-gray-800"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
-      
-      {/* Mobile Menu Button */}
-      <button 
-        className="md:hidden absolute top-2 right-4 p-2 text-gray-800"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
     </header>
   );
 }

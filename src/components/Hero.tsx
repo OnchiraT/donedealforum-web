@@ -18,7 +18,7 @@ export function Hero() {
       {/* Video Poster as fallback background with fade-in */}
       <img 
         src="/video-poster.jpg" 
-        alt="Done Deal Academy" 
+        alt="Deal Master Academy" 
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
           showVideo ? 'opacity-100' : 'opacity-0'
         }`}

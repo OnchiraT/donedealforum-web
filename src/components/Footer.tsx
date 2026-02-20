@@ -37,7 +37,36 @@ export function Footer() {
           <div className={`transition-all duration-1000 delay-100 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <img src="/donedeal-academy-logo.jpg" alt="Done Deal Academy" className="w-40 h-auto mb-4 rounded" />
+            <div className="flex items-center mb-4" style={{ gap: '12px' }}>
+              <img src="/deal-master-logo.png" alt="Deal Master Academy" className="h-10 w-auto" />
+              <div className="flex flex-col">
+                <span 
+                  style={{ 
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 700,
+                    fontSize: '15px',
+                    color: '#8B1A1A',
+                    letterSpacing: '0.02em',
+                    lineHeight: 1.2
+                  }}
+                >
+                  Deal Master
+                </span>
+                <span 
+                  style={{ 
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 400,
+                    fontSize: '10px',
+                    color: '#666',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase' as const,
+                    lineHeight: 1.2
+                  }}
+                >
+                  Academy
+                </span>
+              </div>
+            </div>
             <p 
               className="text-sm text-gray-600 mb-2"
               style={{ fontFamily: "'Poppins', sans-serif" }}
@@ -100,7 +129,7 @@ export function Footer() {
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
-                Facebook: Done Deal Academy
+                Facebook: Deal Master Academy
               </a>
               <a 
                 href="https://www.instagram.com/donedealacademy" 
@@ -109,7 +138,7 @@ export function Footer() {
                 className="text-sm text-gray-600 hover:text-pink-600 transition-colors"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
-                Instagram: @donedealacademy
+                Instagram: @dealmasteracademy
               </a>
               <a 
                 href="https://www.tiktok.com/@done.deal.academy" 
@@ -118,7 +147,7 @@ export function Footer() {
                 className="text-sm text-gray-600 hover:text-black transition-colors"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
-                TikTok: @done.deal.academy
+                TikTok: @deal.master.academy
               </a>
             </div>
           </div>
@@ -132,14 +161,14 @@ export function Footer() {
             className="text-sm text-gray-500"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            © 2025 Done Deal Academy. All rights reserved.
+            © 2025 Deal Master Academy. All rights reserved.
           </p>
           <div className="flex gap-6">
             <span 
               className="text-sm text-gray-500"
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
-              #DoneDealAcademy
+              #DealMasterAcademy
             </span>
             <span 
               className="text-sm text-gray-500"

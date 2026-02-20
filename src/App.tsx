@@ -63,13 +63,13 @@ export default function App() {
       <Hero />
 
       {/* About Section */}
-      <WhiteSection id="about" title="About Done Deal Academy" centered={false}>
+      <WhiteSection id="about" title="About Deal Master Academy" centered={false}>
         <div className="max-w-3xl">
           <p 
             className="text-xl mb-6 text-gray-700"
             style={{ fontFamily: "'IBM Plex Sans Thai', sans-serif", lineHeight: 1.8 }}
           >
-            <strong>Done Deal Academy</strong> คือสถาบันพัฒนาทักษะด้านการขายและการเจรจาต่อรองระดับพรีเมียมแห่งแรกของประเทศไทย ที่ขับเคลื่อนด้วยแนวคิด Digital-Driven Commercial Leadership
+            <strong>Deal Master Academy</strong> คือสถาบันพัฒนาทักษะด้านการขายและการเจรจาต่อรองระดับพรีเมียมแห่งแรกของประเทศไทย ที่ขับเคลื่อนด้วยแนวคิด Digital-Driven Commercial Leadership
           </p>
           <p 
             className="text-gray-600 mb-6"
@@ -95,7 +95,7 @@ export default function App() {
       />
 
       {/* Why Choose Us Section */}
-      <WhiteSection title="ทำไมต้อง Done Deal Academy" centered={false}>
+      <WhiteSection title="ทำไมต้อง Deal Master Academy" centered={false}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }} className="feature-grid">
           {features.map((feature, index) => (
             <FeatureCard
