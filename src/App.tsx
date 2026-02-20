@@ -11,22 +11,26 @@ export default function App() {
     {
       number: "01",
       title: "Sales Mastery",
-      description: "เรียนรู้เทคนิคการขายระดับสูงที่ปฏิวัติวงการ Sales ด้วยแนวคิดใหม่ที่ผสมผสาน Data และ Empathy"
+      description: "เรียนรู้เทคนิคการขายระดับสูงที่ปฏิวัติวงการ Sales ด้วยแนวคิดใหม่ที่ผสมผสาน Data และ Empathy",
+      backgroundImage: "/feature-sales.jpg"
     },
     {
       number: "02",
       title: "Deal Closing",
-      description: "พัฒนาทักษะการปิดดีลระดับมืออาชีพ สร้างความสำเร็จในทุกการเจรจาต่อรอง"
+      description: "พัฒนาทักษะการปิดดีลระดับมืออาชีพ สร้างความสำเร็จในทุกการเจรจาต่อรอง",
+      backgroundImage: "/feature-deal.jpg"
     },
     {
       number: "03",
       title: "Leadership Development",
-      description: "สร้างภาวะผู้นำด้านการขายและการพาณิชย์ที่พร้อมนำทีมสู่ความสำเร็จ"
+      description: "สร้างภาวะผู้นำด้านการขายและการพาณิชย์ที่พร้อมนำทีมสู่ความสำเร็จ",
+      backgroundImage: "/feature-leadership.jpg"
     },
     {
       number: "04",
       title: "Business Networking",
-      description: "เชื่อมต่อกับชุมชน Real Deal Maker และสร้างเครือข่ายธุรกิจระดับ CEO"
+      description: "เชื่อมต่อกับชุมชน Real Deal Maker และสร้างเครือข่ายธุรกิจระดับ CEO",
+      backgroundImage: "/feature-networking.jpg"
     }
   ];
 
@@ -92,7 +96,7 @@ export default function App() {
 
       {/* Why Choose Us Section */}
       <WhiteSection title="ทำไมต้อง Done Deal Academy" centered={false}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }} className="feature-grid">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
@@ -100,9 +104,18 @@ export default function App() {
               title={feature.title}
               description={feature.description}
               index={index}
+              backgroundImage={feature.backgroundImage}
             />
           ))}
         </div>
+        <style>{`
+          @media (max-width: 1024px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
+          @media (max-width: 640px) {
+            .feature-grid { grid-template-columns: 1fr !important; }
+          }
+        `}</style>
       </WhiteSection>
 
       {/* Image Section - Expert Insights */}
